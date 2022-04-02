@@ -1,21 +1,3 @@
-<?php 
-    include "config/conexion.php";
-    include "config/validar.php";
-
-    $obj= new conectar();
-    $conexion=$obj->conexion();
-
-    $sql="SELECT idcliente, 
-                    Nombre o razon social, 
-                    RFC, 
-                    Regimen, 
-                    Direccion, 
-                    E-mail 
-        from cliente";
-    $result=mysqli_query($conexion,$sql);
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,18 +24,52 @@
             <div class="page-content"> 
             <?php include_once "includes/header.php"; ?>
                 <div class="content">
-                <div class="">
-                        <h4 class="page-title">Clientes | Listado</h4>
-                    </div>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+			        <h1 class="h3 mb-0 text-gray-800">Clientes | Listado</h1>
+			        <a class="btn btn-primary">Nuevo</a>
+		        </div>
                     <div class="table-container">
-                        <table class"table table-hover table-condensed" id="iddatatable">
-                            <thead style=background-color: #dc3545;clor:>
-                            
+                        <table class="table table-hover table-condensed" id="iddatatable">
+                            <thead class="thead-dark">
                                 <tr>
-                                   
+                                    <td>ID</td>
+                                    <td>Razon Social</td>
+                                    <td>RFC</td>
+                                    <td>Regimen</td>
+                                    <td>Direccion</td>
+                                    <td>E-mail</td>
                                 </tr>
                             </thead>
-                           
+                            <tfoot style="background-color: #ccc;color: white; font-weigth: bold;">
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Razon Social</td>
+                                    <td>RFC</td>
+                                    <td>Regimen</td>
+                                    <td>Direccion</td>
+                                    <td>E-mail</td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php
+                                    include "config/conexion.php";
+                                    $query = mysqli_query($conexion, "SELECT * FROM cliente");
+						            $result = mysqli_num_rows($query);
+
+                                    if ($result > 0) {
+                                        while ($data = mysqli_fetch_assoc($query)) { ?>
+                                            <tr>
+                                                <td><?php echo $data['idcliente']; ?></td>
+                                                <td><?php echo $data['Nombre o razon social']; ?></td>
+                                                <td><?php echo $data['RFC']; ?></td>
+                                                <td><?php echo $data['Regimen']; ?></td>
+                                                <td><?php echo $data['Direccion']; ?></td>
+                                                <td><?php echo $data['E-mail']; ?></td>
+                                                <?php } ?>
+                                            </tr>
+                                    <?php }
+                                ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>  
@@ -61,7 +77,14 @@
         </section>
     </main>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="scripts/custom.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="scripts/custom.js"></script>
 </body>
-
 </html>
+
+<script type="text/javascript" >
+    $(document).ready(function() {
+        $('#iddatatable').DataTable();
+    } );
+</script>
