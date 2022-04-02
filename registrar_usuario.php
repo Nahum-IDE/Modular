@@ -139,14 +139,8 @@ include "assets/config/validar.php";
           <div class="copyright"><span class="black">Turnover</span> | Todos los derechos reservados ®</div>
         </div>
     </section>
-  
-
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
-      //Funcion que hace desaparecer el div transcurridos
-      $(document).ready(function() {
-            $("#oculta").fadeOut(6000);
-      });
     </script>
     <script src="assets/scripts/custom.js"></script>
     <script src="assets/scripts/alertify.js"></script>
