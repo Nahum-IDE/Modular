@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turnover | Dashboard</title>
     <link rel="stylesheet" href="style/custom.min.css">
+    <link rel="stylesheet" href="librerias/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="librerias/datatable/dataTables.bootstrap4.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -22,14 +24,14 @@
         <section class="main-container">
             <?php include_once "includes/menu.php"; ?>           
             <div class="page-content"> 
-            <?php include_once "includes/header.php"; ?>
+                <?php include_once "includes/header.php"; ?>
                 <div class="content">
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-			        <h1 class="h3 mb-0 text-gray-800">Clientes | Listado</h1>
-			        <a class="btn btn-primary">Nuevo</a>
-		        </div>
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+			            <h1 class="h3 mb-0 text-gray-800">Clientes | Listado</h1>
+			            <a class="btn btn-primary">Nuevo</a>
+		            </div>
                     <div class="table-container">
-                        <table class="table table-hover table-condensed" id="iddatatable">
+                        <table class="table table-striped" id="table">
                             <thead class="thead-dark">
                                 <tr>
                                     <td>ID</td>
@@ -71,20 +73,55 @@
                                 ?>
                             </tbody>
                         </table>
-                    </div>
-                </div>  
+                    </div> 
+                </div>
             </div>
         </section>
     </main>
+    <!-- Footer -->
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright &copy; Team Rocket <?php echo date("Y"); ?></span>
+    </div>
+  </div>
+</footer>
+<!-- fin de  Footer -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="librerias/datatable/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="librerias/datatable/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="scripts/custom.js"></script>
 </body>
 </html>
 
-<script type="text/javascript" >
-    $(document).ready(function() {
-        $('#iddatatable').DataTable();
-    } );
+<!--  Estructura de la tablas -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#table').DataTable({
+      language: {
+        "decimal": "",
+        "emptyTable": "No hay datos",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+        "infoEmpty": "Mostrando 0 a 0 de 0 registros",
+        "infoFiltered": "(Filtro de _MAX_ total registros)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ registros",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "No se encontraron coincidencias",
+        "paginate": {
+          "first": "Primero",
+          "last": "Ultimo",
+          "next": "Siguiente",
+          "previous": "Anterior"
+        },
+        "aria": {
+          "sortAscending": ": Activar orden de columna ascendente",
+          "sortDescending": ": Activar orden de columna desendente"
+        }
+      }
+    });
+  });
 </script>

@@ -37,13 +37,6 @@ $('#registrarme').on("click", function(){
         $('.table-action').addClass('d-none')
       }
     })
-    /*
-    $('.upload input').on('change', function(e) {
-        var filename = e.target.files[0].name;
-        $(this).parent().find('label').html(filename);
-      $(this).parent().toggleClass('checked');
-    });
-    */
    
     $('.profile-option').on('click', function(){
       $('.menu').toggleClass('show-menu')
