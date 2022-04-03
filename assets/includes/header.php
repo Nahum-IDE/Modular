@@ -11,21 +11,42 @@
                             <img src="images/empresas.svg" alt="">
                             <div>
                                 <h5>Total empresas</h5>
-                                <span>56</span>
+                                <span>
+                                <?php
+                                    include "./config/conexion.php";
+                                    $result = mysqli_query($conexion, "SELECT COUNT(*) total FROM cliente");
+                                    $fila = mysqli_fetch_assoc($result);
+                                    echo $fila['total'];
+                                ?> 
+                                </span>
                             </div>
                         </div>
                         <div class="stat-item">
                             <img src="images/usuarios.svg" alt="">
                             <div>
                                 <h5>Usuarios registrados</h5>
-                                <span>56</span>
+                                <span>
+                                <?php
+                                    include "./config/conexion.php";
+                                    $result = mysqli_query($conexion, "SELECT COUNT(*) total FROM emisor");
+                                    $fila = mysqli_fetch_assoc($result);
+                                    echo $fila['total'];
+                                ?> 
+                                </span>
                             </div>
                         </div>
                         <div class="stat-item">
                             <img src="images/certificados.svg" alt="">
                             <div>
                                 <h5>Facturas emitidas</h5>
-                                <span>56</span>
+                                <span>
+                                <?php
+                                    include "./config/conexion.php";
+                                    $result = mysqli_query($conexion, "SELECT COUNT(*) total FROM facturas");
+                                    $fila = mysqli_fetch_assoc($result);
+                                    echo $fila['total'];
+                                ?> 
+                                </span>
                             </div>
                         </div>
                     </div>

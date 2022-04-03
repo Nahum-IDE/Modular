@@ -31,7 +31,7 @@
 			            <a class="btn btn-primary">Nuevo</a>
 		            </div>
                     <div class="table-container">
-                        <table class="table table-striped" id="table">
+                        <table class="table table-striped table-bordered" id="table">
                             <thead class="thead-dark">
                                 <tr>
                                     <td>ID</td>
@@ -56,7 +56,7 @@
                                 <?php
                                     include "config/conexion.php";
                                     $query = mysqli_query($conexion, "SELECT * FROM cliente");
-						            $result = mysqli_num_rows($query);
+						                        $result = mysqli_num_rows($query);
 
                                     if ($result > 0) {
                                         while ($data = mysqli_fetch_assoc($query)) { ?>
@@ -77,16 +77,17 @@
                 </div>
             </div>
         </section>
-    </main>
-    <!-- Footer -->
+<!-- Footer -->
 <footer class="sticky-footer bg-white">
   <div class="container my-auto">
     <div class="copyright text-center my-auto">
-      <span>Copyright &copy; Team Rocket <?php echo date("Y"); ?></span>
+      <span>Copyright &copy; Turnover <?php echo date("Y"); ?></span>
     </div>
   </div>
 </footer>
 <!-- fin de  Footer -->
+    </main>
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="librerias/datatable/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="librerias/datatable/dataTables.bootstrap4.min.js"></script>
