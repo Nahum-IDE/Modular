@@ -15,8 +15,7 @@
         rel="stylesheet">
 
     <!-- https://material.io/resources/icons/?style=twotone -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone"
-      rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
 
 </head>
 <body>
@@ -40,6 +39,8 @@
                                     <td>Regimen</td>
                                     <td>Direccion</td>
                                     <td>E-mail</td>
+                                    <td></td>
+                                    <td></td>
                                 </tr>
                             </thead>
                             <tfoot style="background-color: #ccc;color: white; font-weigth: bold;">
@@ -50,6 +51,8 @@
                                     <td>Regimen</td>
                                     <td>Direccion</td>
                                     <td>E-mail</td>
+                                    <td></td>
+                                    <td></td>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -67,6 +70,8 @@
                                                 <td><?php echo $data['Regimen']; ?></td>
                                                 <td><?php echo $data['Direccion']; ?></td>
                                                 <td><?php echo $data['E-mail']; ?></td>
+                                                <td></td>
+                                                <td></td>
                                                 <?php } ?>
                                             </tr>
                                     <?php }
