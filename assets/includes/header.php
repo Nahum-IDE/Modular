@@ -27,7 +27,7 @@
                                 <h5>Usuarios registrados</h5>
                                 <span>
                                 <?php
-                                    include "./config/conexion.php";
+                                   
                                     $result = mysqli_query($conexion, "SELECT COUNT(*) total FROM emisor");
                                     $fila = mysqli_fetch_assoc($result);
                                     echo $fila['total'];
@@ -41,7 +41,7 @@
                                 <h5>Facturas emitidas</h5>
                                 <span>
                                 <?php
-                                    include "./config/conexion.php";
+                                   
                                     $result = mysqli_query($conexion, "SELECT COUNT(*) total FROM facturas");
                                     $fila = mysqli_fetch_assoc($result);
                                     echo $fila['total'];
@@ -66,4 +66,3 @@
                     </div>
                 </div>
             </div>
-                <!---->

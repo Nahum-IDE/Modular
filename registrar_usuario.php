@@ -47,10 +47,9 @@ include "assets/config/validar.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turnover</title>
     <link rel="stylesheet" href="assets/style/custom.min.css">
-    <link rel="stylesheet" href="assets/style/alertify.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&amp;display=swap" rel="stylesheet">
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> -->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&amp;display=swap" rel="stylesheet"> -->
     <style type="text/css">
         @font-face {
           font-weight: 400;
@@ -143,7 +142,6 @@ include "assets/config/validar.php";
     <script type="text/javascript">
     </script>
     <script src="assets/scripts/custom.js"></script>
-    <script src="assets/scripts/alertify.js"></script>
 </body>
 <loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container>
 <loom-container id="lo-companion-container"><loom-shadow classname="resolved"></loom-shadow></loom-container>
