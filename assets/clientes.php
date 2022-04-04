@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turnover | Dashboard</title>
     <link rel="stylesheet" href="style/custom.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+
 <!--    <link rel="stylesheet" href="librerias/bootstrap/bootstrap.css">                    -->
 <!--     <link rel="stylesheet" href="librerias/datatable/dataTables.bootstrap4.min.css">   -->
 <!--    <link rel="preconnect" href="https://fonts.googleapis.com">                         -->
@@ -27,32 +30,34 @@
                 <div class="content">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
 			            <h1 class="h3 mb-0 text-gray-800">Clientes | Listado</h1>
-			            <a class="btn btn-primary">Nuevo</a>
+			            <a class="btn btn-primary">
+                            Nuevo <span class='fas fa-plus-circle'></span>
+                        </a>
 		            </div>
                     <div class="table-container">
                         <table class="table table-striped table-bordered" id="table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <td>ID</td>
+                                    <td>ID </td>
                                     <td>Razon Social</td>
                                     <td>RFC</td>
                                     <td>Regimen</td>
                                     <td>Direccion</td>
                                     <td>E-mail</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>Editar</td>
+                                    <td>Eliminar</td>
                                 </tr>
                             </thead>
                             <tfoot style="background-color: #ccc;color: white; font-weigth: bold;">
                                 <tr>
-                                    <td>ID</td>
+                                    <td>ID </td>
                                     <td>Razon Social</td>
                                     <td>RFC</td>
                                     <td>Regimen</td>
                                     <td>Direccion</td>
                                     <td>E-mail</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>Editar</td>
+                                    <td>Eliminar</td>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -70,8 +75,16 @@
                                                 <td><?php echo $data['Regimen']; ?></td>
                                                 <td><?php echo $data['Direccion']; ?></td>
                                                 <td><?php echo $data['E-mail']; ?></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>
+                                                    <span class="btn btn-warning btn-xs">
+                                                        <span class='fas fa-user-edit'></span>
+                                                    </span>  
+                                                </td>
+                                                <td>
+                                                    <span class="btn btn-danger btn-xs">
+                                                        <span class='fas fa-trash-alt'></span>
+                                                    </span> 
+                                                </td>
                                                 <?php } ?>
                                             </tr>
                                     <?php }
