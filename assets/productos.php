@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,20 +20,12 @@
     <main>
         <section class="main-container">
             <?php include_once "includes/menu.php"; ?>           
-            <div class="page-content"> 
             <?php include_once "includes/header.php"; ?>
                 <div class="content">
                 <div class="">
                         <h4 class="page-title">Productos o servicios | Listado</h4>
-                        
                     </div>
-                
                 </div>  
             </div>
         </section>
-    </main>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="scripts/custom.js"></script>
-</body>
-
-</html>
+        <?php include_once "includes/footer.php"; ?>

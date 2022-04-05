@@ -21,7 +21,6 @@
     <main>
         <section class="main-container">
             <?php include_once "includes/menu.php"; ?>           
-            <div class="page-content"> 
             <?php include_once "includes/header.php"; ?>
                 <div class="content">
                 <div class="">
@@ -33,9 +32,4 @@
             </div>
         </section>
         <?php include_once "includes/footer.php"; ?>
-    </main>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="scripts/custom.js"></script>
-</body>
-
-</html>
+   

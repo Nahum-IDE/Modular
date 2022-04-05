@@ -7,8 +7,6 @@
     <title>Turnover | Dashboard</title>
     <link rel="stylesheet" href="style/custom.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-
-
 <!--    <link rel="stylesheet" href="librerias/bootstrap/bootstrap.css">                    -->
 <!--     <link rel="stylesheet" href="librerias/datatable/dataTables.bootstrap4.min.css">   -->
 <!--    <link rel="preconnect" href="https://fonts.googleapis.com">                         -->
@@ -25,8 +23,7 @@
     <main>
         <section class="main-container">
             <?php include_once "includes/menu.php"; ?>           
-            <div class="page-content"> 
-                <?php include_once "includes/header.php"; ?>
+                 <?php include_once "includes/header.php"; ?> 
                 <div class="content">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
 			            <h1 class="h3 mb-0 text-gray-800">Clientes | Listado</h1>
@@ -34,7 +31,7 @@
                             Nuevo <span class='fas fa-plus-circle'></span>
                         </a>
 		            </div>
-                    <div class="table-container">
+                  <!--  <div class="table-container"> --> 
                         <table class="table table-striped table-bordered" id="table">
                             <thead class="thead-dark">
                                 <tr>
@@ -91,7 +88,7 @@
                                 ?>
                             </tbody>
                         </table>
-                    </div> 
+                   <!-- </div> --> 
                 </div>
             </div>
         </section>

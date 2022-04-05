@@ -13,8 +13,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&display=swap"
         rel="stylesheet">
-
-    <!-- https://material.io/resources/icons/?style=twotone -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone"
       rel="stylesheet">
 </head>
@@ -22,7 +20,6 @@
     <main>
         <section class="main-container">
             <?php include_once "includes/menu.php"; ?>           
-            <div class="page-content"> 
             <?php include_once "includes/header.php"; ?>
                 <div class="content">
                    <div class="">
@@ -94,13 +91,4 @@
                 </div>  
             </div>
         </section>
-    </main>
-
-    <!--
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="scripts/custom.js"></script>
-    -->
-
-</body>
-
-</html>
+        <?php include_once "includes/footer.php"; ?>
