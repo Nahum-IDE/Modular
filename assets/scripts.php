@@ -4,7 +4,9 @@
 <!-- links de alertify-->
 <link rel="stylesheet" type="text/css" href="librerias/alertify/css/alertify.css">
 <link rel="stylesheet" type="text/css" href="librerias/alertify/css/themes/bootstrap.css">
+<!-- links de font awesome-->
 <link rel="stylesheet" type="text/css" href="librerias/fontawesome/css/fontawesome.css">
+<link rel="stylesheet" type="text/css" href="librerias/fontawesome/css/all.min.css">
 <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
 <!-- scripts de bootstrap-->

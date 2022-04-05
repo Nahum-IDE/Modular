@@ -1,4 +1,4 @@
-   <!---->
+   <!-- Encabezado de las paginas-->
    <?php include_once "functions.php"; ?> 
 
    <div class="header">
