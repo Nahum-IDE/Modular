@@ -5,9 +5,12 @@ include "assets/config/validar.php";
   if (!empty($_POST)) {
     $alert = "";
     if (empty($_POST['nombre']) || empty($_POST['usuario']) || empty($_POST['clave'])){
-        $alert = '<div id="oculta" class="alert alert-danger" role="alert">
-                                    Todo los campos son obligatorio
-                  </div>';
+       // $alert = '<div id="oculta" class="alert alert-danger" role="alert">
+         //                           Todo los campos son obligatorio
+           //       </div>';
+           echo "<script>";
+           echo "MiFuncionJS();";
+           echo "</script>";
     } else {
 
       $nombre = $_POST['nombre'];
@@ -31,6 +34,7 @@ include "assets/config/validar.php";
             if ($query_insert) {
                 $alert = '<div id="oculta" class="alert alert-primary" role="alert"> Cliente Registrado </div>';
                 } else {
+
                     $alert = '<div id="oculta" class="alert alert-danger" role="alert"> Error al Guardar </div>';
                 }
             }
@@ -139,8 +143,7 @@ include "assets/config/validar.php";
         </div>
     </section>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript">
-    </script>
+   
     <script src="assets/scripts/custom.js"></script>
 </body>
 <loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container>
@@ -148,3 +151,8 @@ include "assets/config/validar.php";
 </html>
 
 
+<script type="text/javascript">
+      MiFuncionJS(){  
+      
+      }
+</script>

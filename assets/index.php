@@ -66,8 +66,8 @@
                                     <td>$10000.00</td>
                                     <td>
                                         <div class="table-row-actions">
-                                        <button><i class="material-icons-two-tone">picture_as_pdf</i></button>  
-                                            <button><i class="icon-trash"></i></button>
+                                            <button><i class="bi bi-file-earmark-pdf"></i></button>  
+                                            <button></button>
                                         </div>
                                     </td>
                                 </tr>

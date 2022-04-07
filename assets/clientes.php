@@ -16,8 +16,7 @@
         rel="stylesheet">
 
     <!-- https://material.io/resources/icons/?style=twotone -->
- <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
 </head>
 <body>
     <main>
@@ -27,9 +26,10 @@
                 <div class="content">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
 			            <h1 class="h3 mb-0 text-gray-800">Clientes | Listado</h1>
-			            <a class="btn btn-primary">
+			            <span  class="btn btn-primary" data-toggle="modal" data-target="#agregarnuevocliente">
                             Nuevo <span class='fas fa-plus-circle'></span>
-                        </a>
+                        </span >
+                       
 		            </div>
                   <!--  <div class="table-container"> --> 
                         <table class="table table-striped table-bordered" id="table">
@@ -92,4 +92,53 @@
                 </div>
             </div>
         </section>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="agregarnuevocliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Cliente Nuevo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulario para agregar cliente-->
+                <form action="" method="post" autocomplete="off">
+                    <div class="cs-field field">  
+                        <label for="usuario" class="bold">Nombre o Razon Social</label>
+                        <input type="text" placeholder="Nombre o Razon Social" name="usuario" required="">
+                    </div>
+                    <div class="cs-field field">  
+                        <label for="usuario" class="bold">RFC</label>
+                        <input type="text" placeholder="Escriba su RFC" name="usuario" required="">
+                    </div>
+                    <div class="cs-field field">
+                        <label for="favoriteOnly" class="bold">Selecciona Tu Regimen:</label>
+                        <select name="favoriteOnly" id="favoriteOnly">
+                            <option>...</option>
+                            <option>...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="cs-field field">
+                        <label for="contraseña" class="bold">Direccion</label>
+                        <input type="password" placeholder="" name="clave" required="">
+                    </div>
+                    <div class="cs-field field">
+                        <label for="contraseña" class="bold">Correo Electronico</label>
+                        <input type="password" placeholder="" name="clave" required="">
+                    </div>
+                   
+                </form>  
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+        </div>
         <?php include_once "includes/footer.php"; ?>

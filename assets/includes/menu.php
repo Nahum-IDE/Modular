@@ -18,10 +18,11 @@
                 <span>Mis facturas</span>
             </a>
         <!-- </div> -->        
-            <a href="productos.php" class="link" style='color:black>
+            <a href="productos.php" class="link" style='color:black'>
                 <i class="icon-config"></i>
                 <span>Productos o servicios</span>
             </a>
+
             <a href="clientes.php" class="link" style='color:black'>
                 <i class="fas fa-users"></i>
                 <span>clientes</span>
