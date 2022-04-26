@@ -26,7 +26,7 @@
                 <div class="content">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
 			            <h1 class="h3 mb-0 text-gray-800">Clientes | Listado</h1>
-			            <span  class="btn btn-primary" data-toggle="modal" data-target="#agregarnuevocliente">
+			            <span  href="agregar_cliente.php" class="btn btn-primary" data-toggle="modal" data-target="#agregarnuevocliente">
                             Nuevo <span class='fas fa-plus-circle'></span>
                         </span >
                        
@@ -40,7 +40,7 @@
                                     <td>RFC</td>
                                     <td>Regimen</td>
                                     <td>Direccion</td>
-                                    <td>E-mail</td>
+                                    <td>Correo</td>
                                     <td>Editar</td>
                                     <td>Eliminar</td>
                                 </tr>
@@ -52,7 +52,7 @@
                                     <td>RFC</td>
                                     <td>Regimen</td>
                                     <td>Direccion</td>
-                                    <td>E-mail</td>
+                                    <td>Correo</td>
                                     <td>Editar</td>
                                     <td>Eliminar</td>
                                 </tr>
@@ -67,11 +67,11 @@
                                         while ($data = mysqli_fetch_assoc($query)) { ?>
                                             <tr>
                                                 <td><?php echo $data['idcliente']; ?></td>
-                                                <td><?php echo $data['Nombre o razon social']; ?></td>
+                                                <td><?php echo $data['Rsocial']; ?></td>
                                                 <td><?php echo $data['RFC']; ?></td>
                                                 <td><?php echo $data['Regimen']; ?></td>
                                                 <td><?php echo $data['Direccion']; ?></td>
-                                                <td><?php echo $data['E-mail']; ?></td>
+                                                <td><?php echo $data['Correo']; ?></td>
                                                 <td>
                                                     <span class="btn btn-warning btn-xs">
                                                         <span class='fas fa-user-edit'></span>
@@ -93,52 +93,70 @@
             </div>
         </section>
 
-
-        <!-- Modal -->
-        <div class="modal fade" id="agregarnuevocliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        
+<!-- Modal -->
+<div class="modal fade" id="agregarnuevocliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Agregar Cliente Nuevo</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <!-- Formulario para agregar cliente-->
-                <form action="" method="post" autocomplete="off">
+                <form id="frmcliente">
                     <div class="cs-field field">  
                         <label for="usuario" class="bold">Nombre o Razon Social</label>
-                        <input type="text" placeholder="Nombre o Razon Social" name="usuario" required="">
+                        <input type="text" placeholder="" name="Rsocial" required="">
                     </div>
                     <div class="cs-field field">  
                         <label for="usuario" class="bold">RFC</label>
-                        <input type="text" placeholder="Escriba su RFC" name="usuario" required="">
+                        <input type="text" placeholder="" name="RFC" required="">
                     </div>
                     <div class="cs-field field">
-                        <label for="favoriteOnly" class="bold">Selecciona Tu Regimen:</label>
-                        <select name="favoriteOnly" id="favoriteOnly">
-                            <option>...</option>
-                            <option>...</option>
-                            <option>...</option>
-                        </select>
+                        <label for="regimen" class="bold">Regimen</label>
+                        <input type="text" placeholder="" name="Regimen" required="">
                     </div>
                     <div class="cs-field field">
                         <label for="contraseña" class="bold">Direccion</label>
-                        <input type="password" placeholder="" name="clave" required="">
+                        <input type="text" placeholder="" name="Direccion" required="">
                     </div>
                     <div class="cs-field field">
                         <label for="contraseña" class="bold">Correo Electronico</label>
-                        <input type="password" placeholder="" name="clave" required="">
+                        <input type="mail" placeholder="" name="Correo" required="">
                     </div>
                    
                 </form>  
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                <button type="button" id="btncerrar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="btnagregar" class="btn btn-primary">Guardar</button>
             </div>
         </div>
-        </div>
-        <?php include_once "includes/footer.php"; ?>
+    </div>
+</div>
+<?php include_once "includes/footer.php"; ?>
+
+<script type="text/javascript">
+    $('#btnagregar').onclick(function(){ //funcion del boton agregar
+        console.log(GGG);
+        datos=$('#frmcliente').serialize(); //traer todos los datos del formulario
+        print('ccccccccccc')
+        
+        $.ajax({
+            type:"POST",
+            data:datos,
+            url:"agregar_cliente.php"
+            success:function(r){
+                if(r==1){
+                    $('#frmcliente')[0].reset(); //borrar datos del frm una vez agregados
+                    alertify.success("Agregado con exito!!!");
+                }else{
+                    alertify.error("Fallo al agregar")
+                }
+            }
+        });
+    });
+</script>

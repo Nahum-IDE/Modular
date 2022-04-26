@@ -149,10 +149,3 @@ include "assets/config/validar.php";
 <loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container>
 <loom-container id="lo-companion-container"><loom-shadow classname="resolved"></loom-shadow></loom-container>
 </html>
-
-
-<script type="text/javascript">
-      MiFuncionJS(){  
-      
-      }
-</script>
