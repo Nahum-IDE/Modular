@@ -127,36 +127,37 @@
                         <label for="contraseña" class="bold">Correo Electronico</label>
                         <input type="mail" placeholder="" name="Correo" required="">
                     </div>
-                   
-                </form>  
+                </form>
+                <div class="modal-footer">
+                    <button type="button" id="btncerrar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" id="btnagregar" class="btn btn-primary">Guardar</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" id="btncerrar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" id="btnagregar" class="btn btn-primary">Guardar</button>
-            </div>
+           
         </div>
     </div>
 </div>
 <?php include_once "includes/footer.php"; ?>
 
-<script type="text/javascript">
+<!--  Estructura de la tablas -->
+<script type="text/javascript"> 
+  $(document).ready(function() {
     $('#btnagregar').onclick(function(){ //funcion del boton agregar
-        console.log(GGG);
-        datos=$('#frmcliente').serialize(); //traer todos los datos del formulario
-        print('ccccccccccc')
-        
-        $.ajax({
-            type:"POST",
-            data:datos,
-            url:"agregar_cliente.php"
-            success:function(r){
-                if(r==1){
-                    $('#frmcliente')[0].reset(); //borrar datos del frm una vez agregados
-                    alertify.success("Agregado con exito!!!");
-                }else{
-                    alertify.error("Fallo al agregar")
-                }
+      datos=$('#frmcliente').serialize(); //traer todos los datos del formulario    
+      console.log(datos);
+      $.ajax({
+        type:"POST",
+        data:datos,
+        url:"agregar_cliente.php",
+        success:function(r){
+          if(r==1){
+            $('#frmcliente')[0].reset(); //borrar datos del frm una vez agregados
+              alertify.success("Agregado con exito!!!");
+            }else{
+              alertify.error("Fallo al agregar");
             }
+          }
         });
     });
+  });
 </script>

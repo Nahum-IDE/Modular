@@ -5,12 +5,7 @@ include "assets/config/validar.php";
   if (!empty($_POST)) {
     $alert = "";
     if (empty($_POST['nombre']) || empty($_POST['usuario']) || empty($_POST['clave'])){
-       // $alert = '<div id="oculta" class="alert alert-danger" role="alert">
-         //                           Todo los campos son obligatorio
-           //       </div>';
-           echo "<script>";
-           echo "MiFuncionJS();";
-           echo "</script>";
+         $alert = "<script> alertify.error('Favor de llenar todos los campos',3); </script>";
     } else {
 
       $nombre = $_POST['nombre'];
@@ -22,20 +17,15 @@ include "assets/config/validar.php";
       $result = mysqli_fetch_array($query);
 
       if ($result > 0) {
-        $alert = '<div id="oculta" class="alert alert-danger" role="alert">
-                    El RFC ya existe
-                  </div>';
+        $alert = "<script> alertify.error('El RFC ya existe'); </script>";
       }elseif(valida_rfc($usuario) == false){
-        $alert = '<div id="oculta" class="alert alert-danger" role="alert">
-                      El RFC es incorrecta
-                  </div>';
+        $alert = "<script> alertify.error('El RFC es incorrecta'); </script>";
         }else{
                 $query_insert = mysqli_query($conexion, "INSERT INTO emisor(nombre,usuario,clave) values ('$nombre', '$usuario', '$clave')");
             if ($query_insert) {
-                $alert = '<div id="oculta" class="alert alert-primary" role="alert"> Cliente Registrado </div>';
+                $alert = "alertify.notify('Cliente Registrado', 'success', 5)";
                 } else {
-
-                    $alert = '<div id="oculta" class="alert alert-danger" role="alert"> Error al Guardar </div>';
+                    $alert = "<script> alertify.error('Error al Guardar'); </script>";
                 }
             }
         }
@@ -50,6 +40,10 @@ include "assets/config/validar.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turnover</title>
+    <link rel="stylesheet" type="text/css" href="assets/librerias/alertify/css/alertify.css">
+    <link rel="stylesheet" type="text/css" href="assets/librerias/alertify/css/themes/bootstrap.css">
+    <script src="assets/librerias/alertify/alertify.min.js"></script>
+
     <link rel="stylesheet" href="assets/style/custom.min.css">
 <!--    <link rel="preconnect" href="https://fonts.googleapis.com"> -->
 <!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""> -->
@@ -87,6 +81,7 @@ include "assets/config/validar.php";
     </style>
 </head>
 <body>
+    
     <section id="login">
           <div class="container" id="c1">
             <div class="row overflow-hidden">

@@ -1,16 +1,16 @@
-$('#registrarme').on("click", function(){
-    $('#c1').addClass('move');
-    $("#c2").removeClass("move2");
+    $('#registrarme').on("click", function(){
+        $('#c1').addClass('move');
+        $("#c2").removeClass("move2");
     });
-  
+      
     $("#iniciar").on("click", function () {
       $("#c1").removeClass("move");
       $("#c2").addClass("move2");
     });
-    
+        
     $('.menu-btn').on('click', function(){
         $(this).toggleClass('close-btn')
-      $('aside').toggleClass('show-aside')
+        $('aside').toggleClass('show-aside')
     })
     
     $('.open-filter').on('click', function(){
@@ -52,8 +52,5 @@ $('#registrarme').on("click", function(){
       $(this).parent().parent().parent().parent().removeClass('show-modal')
     })
 
-      //Funcion que hace desaparecer el div transcurridos
-      $(document).ready(function() {
-        $("#oculta").fadeOut(6000);
-      });
-    
+    //Funcion que hace desaparecer el div transcurridos
+    $("#oculta").fadeOut(6000);
