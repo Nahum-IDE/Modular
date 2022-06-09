@@ -25,6 +25,63 @@
                 <div class="">
                         <h4 class="page-title">Productos o servicios | Listado</h4>
                     </div>
+
+                    <table class="table table-striped table-bordered" id="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <td>ID </td>
+                                    <td>Razon Social</td>
+                                    <td>RFC</td>
+                                    <td>Regimen</td>
+                                    <td>Direccion</td>
+                                    <td>Correo</td>
+                                    <td>Editar</td>
+                                    <td>Eliminar</td>
+                                </tr>
+                            </thead>
+                            <tfoot style="background-color: #ccc;color: white; font-weigth: bold;">
+                                <tr>
+                                    <td>ID </td>
+                                    <td>Razon Social</td>
+                                    <td>RFC</td>
+                                    <td>Regimen</td>
+                                    <td>Direccion</td>
+                                    <td>Correo</td>
+                                    <td>Editar</td>
+                                    <td>Eliminar</td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php
+                                    include "config/conexion.php";
+                                    $query = mysqli_query($conexion, "SELECT * FROM cliente");
+						                        $result = mysqli_num_rows($query);
+
+                                    if ($result > 0) {
+                                        while ($data = mysqli_fetch_assoc($query)) { ?>
+                                            <tr>
+                                                <td><?php echo $data['idcliente']; ?></td>
+                                                <td><?php echo $data['Rsocial']; ?></td>
+                                                <td><?php echo $data['RFC']; ?></td>
+                                                <td><?php echo $data['Regimen']; ?></td>
+                                                <td><?php echo $data['Direccion']; ?></td>
+                                                <td><?php echo $data['Correo']; ?></td>
+                                                <td>
+                                                    <span class="btn btn-warning btn-xs">
+                                                        <span class='fas fa-user-edit'></span>
+                                                    </span>  
+                                                </td>
+                                                <td>
+                                                    <span class="btn btn-danger btn-xs">
+                                                        <span class='fas fa-trash-alt'></span>
+                                                    </span> 
+                                                </td>
+                                                <?php } ?>
+                                            </tr>
+                                    <?php }
+                                ?>
+                            </tbody>
+                        </table>
                 </div>  
             </div>
         </section>

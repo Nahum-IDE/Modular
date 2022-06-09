@@ -1,20 +1,28 @@
 <?php 
-include "assets/config/conexion.php";
-include "assets/config/validar.php";
+require 'config/conexion.php';
+require 'config/validar.php';
 //metodo para registrar usuario en db
-  if (!empty($_POST)) {
-    if (empty($_POST['Rsocial']) || empty($_POST['RFC']) || empty($_POST['Regimen'] || 
-        empty($_POST['Direccion']) ||  || empty($_POST['Correo']) || )){
-    } else {
-        $Rsocial = $_POST['Rsocial'];
-        $RFC = $_POST['RFC'];
-        $Regimen = $_POST['Regimen'];
-        $Direccion = $_POST['Direccion'];
-        $Correo = $_POST['Correo'];
-       
-        $query_insert = mysqli_query($conexion, "INSERT INTO cliente(Rsocial,RFC,Regimen,Direccion,Correo) 
-        values ('$Rsocial', '$RFC', '$Regimen', '$Direccion', '$Correo')");
+
+    $alert = "";
+  
+
+    $Rsocial = $_POST['Rsocial'];
+    $RFC = $_POST['RFC'];
+    $Regimen = $_POST['Regimen'];
+    $Direccion = $_POST['Direccion'];
+    $Correo = $_POST['Correo'];
+
+    $result = 0;
+
+    $insert = "INSERT INTO cliente(Rsocial, RFC, Regimen, Direccion, Correo) VALUES ('$Rsocial','$RFC','$Regimen', '$Direccion', '$Correo')";
+
+    $query = mysqli_query($conexion, $insert);
+
+    if ($query) {
+        echo "<script> alert('Correcto'); </script>"
+    }else{
+        echo "<script> alert('incorrecto'); </script>"    
     }
     mysqli_close($conexion);
-}
+
 ?>

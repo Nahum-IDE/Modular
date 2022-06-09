@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,9 +27,9 @@
                 <div class="content">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
 			            <h1 class="h3 mb-0 text-gray-800">Clientes | Listado</h1>
-			            <span  href="agregar_cliente.php" class="btn btn-primary" data-toggle="modal" data-target="#agregarnuevocliente">
+			            <a  href="agregar_cliente.php" class="btn btn-primary" data-toggle="modal" data-target="#agregarnuevocliente">
                             Nuevo <span class='fas fa-plus-circle'></span>
-                        </span >
+                        </a >
                        
 		            </div>
                   <!--  <div class="table-container"> --> 
@@ -62,7 +63,7 @@
                                     include "config/conexion.php";
                                     $query = mysqli_query($conexion, "SELECT * FROM cliente");
 						                        $result = mysqli_num_rows($query);
-
+                                    
                                     if ($result > 0) {
                                         while ($data = mysqli_fetch_assoc($query)) { ?>
                                             <tr>
@@ -73,15 +74,15 @@
                                                 <td><?php echo $data['Direccion']; ?></td>
                                                 <td><?php echo $data['Correo']; ?></td>
                                                 <td>
-                                                    <span class="btn btn-warning btn-xs">
+                                                    <a href="editar_cliente.php?id=<?php echo $data['idcliente']; ?>" class="btn btn-warning btn-xs">
                                                         <span class='fas fa-user-edit'></span>
-                                                    </span>  
+                                                    </a>
                                                 </td>
-                                                <td>
-                                                    <span class="btn btn-danger btn-xs">
-                                                        <span class='fas fa-trash-alt'></span>
-                                                    </span> 
-                                                </td>
+                                                <td>   
+                                                    <form action="eliminar_cliente.php?id=<?php echo $data['idcliente']; ?>" method="post" class="confirmar d-inline">
+                                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i></button>
+                                                    </form> 
+                                                </td> 
                                                 <?php } ?>
                                             </tr>
                                     <?php }
@@ -92,22 +93,23 @@
                 </div>
             </div>
         </section>
-
+   
         
-<!-- Modal -->
+<!--modal new client -->
 <div class="modal fade" id="agregarnuevocliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Agregar Cliente Nuevo</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nuevo Cliente</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <!-- Formulario para agregar cliente-->
-                <form id="frmcliente">
-                    <div class="cs-field field">  
+                <form action="agregar_cliente.php" method="post" autocomplete="off"> 
+                <?php echo isset($alert) ? $alert : ''; ?>
+                    <div class="cs-field field">
                         <label for="usuario" class="bold">Nombre o Razon Social</label>
                         <input type="text" placeholder="" name="Rsocial" required="">
                     </div>
@@ -129,35 +131,13 @@
                     </div>
                 </form>
                 <div class="modal-footer">
-                    <button type="button" id="btncerrar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" id="btnagregar" class="btn btn-primary">Guardar</button>
+                    <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" id="btnagregar" class="btn btn-primary">Guardar</button>
                 </div>
             </div>
            
         </div>
     </div>
 </div>
-<?php include_once "includes/footer.php"; ?>
 
-<!--  Estructura de la tablas -->
-<script type="text/javascript"> 
-  $(document).ready(function() {
-    $('#btnagregar').onclick(function(){ //funcion del boton agregar
-      datos=$('#frmcliente').serialize(); //traer todos los datos del formulario    
-      console.log(datos);
-      $.ajax({
-        type:"POST",
-        data:datos,
-        url:"agregar_cliente.php",
-        success:function(r){
-          if(r==1){
-            $('#frmcliente')[0].reset(); //borrar datos del frm una vez agregados
-              alertify.success("Agregado con exito!!!");
-            }else{
-              alertify.error("Fallo al agregar");
-            }
-          }
-        });
-    });
-  });
-</script>
+<?php include_once "includes/footer.php"; ?>

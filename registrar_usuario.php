@@ -5,7 +5,10 @@ include "assets/config/validar.php";
   if (!empty($_POST)) {
     $alert = "";
     if (empty($_POST['nombre']) || empty($_POST['usuario']) || empty($_POST['clave'])){
-         $alert = "<script> alertify.error('Favor de llenar todos los campos',3); </script>";
+         $alert = "<script> 
+                      alertify.error('Favor de llenar todos los campos',3); 
+                      alertify.set('notifier','position', 'top-right');
+                   </script>";
     } else {
 
       $nombre = $_POST['nombre'];
