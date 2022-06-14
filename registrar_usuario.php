@@ -26,7 +26,7 @@ include "assets/config/validar.php";
         }else{
                 $query_insert = mysqli_query($conexion, "INSERT INTO emisor(nombre,usuario,clave) values ('$nombre', '$usuario', '$clave')");
             if ($query_insert) {
-                $alert = "alertify.notify('Cliente Registrado', 'success', 5)";
+                $alert = "<script> alertify.notify('Usuario Registrado', 'success', 5); </script>";
                 } else {
                     $alert = "<script> alertify.error('Error al Guardar'); </script>";
                 }
@@ -114,7 +114,7 @@ include "assets/config/validar.php";
                     <div class="login-terminos">
                       Al hacer clic en Registrarse, indicas que has leído y aceptas los <a href="">Términos y condiciones</a>
                     </div>
-                    <button id="error" class="login-rut cs-btn btn-blue">Registrarme</button>
+                    <button class="login-rut cs-btn btn-blue">Registrarme</button>
                     <div class="login-secundary-actions">
                       <a id="iniciar" href="index.php">Iniciar sesión</a>
                     </div>

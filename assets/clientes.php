@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +28,7 @@
                 <div class="content">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
 			            <h1 class="h3 mb-0 text-gray-800">Clientes | Listado</h1>
-			            <a  href="agregar_cliente.php" class="btn btn-primary" data-toggle="modal" data-target="#agregarnuevocliente">
+			            <a  href="agregar_cliente.php" class="btn btn-primary" >
                             Nuevo <span class='fas fa-plus-circle'></span>
                         </a >
                        
@@ -62,7 +63,7 @@
                                 <?php
                                     include "config/conexion.php";
                                     $query = mysqli_query($conexion, "SELECT * FROM cliente");
-						                        $result = mysqli_num_rows($query);
+						            $result = mysqli_num_rows($query);
                                     
                                     if ($result > 0) {
                                         while ($data = mysqli_fetch_assoc($query)) { ?>
@@ -74,13 +75,15 @@
                                                 <td><?php echo $data['Direccion']; ?></td>
                                                 <td><?php echo $data['Correo']; ?></td>
                                                 <td>
-                                                    <a href="editar_cliente.php?id=<?php echo $data['idcliente']; ?>" class="btn btn-warning btn-xs">
+                                                    <!-- boton editar -->
+                                                    <a href="editar_cliente.php?id=<?php echo $data['idcliente']; ?>" class="btn btn-warning btn-xs"> 
                                                         <span class='fas fa-user-edit'></span>
-                                                    </a>
+                                                    </a> 
                                                 </td>
                                                 <td>   
+                                                    <!-- boton borrar -->
                                                     <form action="eliminar_cliente.php?id=<?php echo $data['idcliente']; ?>" method="post" class="confirmar d-inline">
-                                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i></button>
+                                                    <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'> </i></button>
                                                     </form> 
                                                 </td> 
                                                 <?php } ?>
@@ -97,7 +100,7 @@
         
 <!--modal new client -->
 <div class="modal fade" id="agregarnuevocliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Nuevo Cliente</h5>
@@ -107,37 +110,107 @@
             </div>
             <div class="modal-body">
                 <!-- Formulario para agregar cliente-->
-                <form action="agregar_cliente.php" method="post" autocomplete="off"> 
-                <?php echo isset($alert) ? $alert : ''; ?>
-                    <div class="cs-field field">
-                        <label for="usuario" class="bold">Nombre o Razon Social</label>
-                        <input type="text" placeholder="" name="Rsocial" required="">
-                    </div>
-                    <div class="cs-field field">  
-                        <label for="usuario" class="bold">RFC</label>
-                        <input type="text" placeholder="" name="RFC" required="">
-                    </div>
-                    <div class="cs-field field">
-                        <label for="regimen" class="bold">Regimen</label>
-                        <input type="text" placeholder="" name="Regimen" required="">
-                    </div>
-                    <div class="cs-field field">
-                        <label for="contraseña" class="bold">Direccion</label>
-                        <input type="text" placeholder="" name="Direccion" required="">
-                    </div>
-                    <div class="cs-field field">
-                        <label for="contraseña" class="bold">Correo Electronico</label>
-                        <input type="mail" placeholder="" name="Correo" required="">
-                    </div>
-                </form>
+                <form method="post" class="needs-validation" novalidate>
+                            <?php echo isset($alert) ? $alert : ''; ?>
+                            <div class="form-row">
+                                <!--formulario razon social -->
+                                <div class="col-md-8 mb-3">
+                                    <label for="validationCustomRS">Razon social</label>
+                                    <input type="text" class="form-control" placeholder="Rason social" id="Rsocial" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                            Please choose a Razon social.
+                                    </div>
+                                </div>
+                                <!--formulario RFC -->
+                                <div class="col-md-4 mb-3">
+                                    <label for="validationCustomRFC">RFC</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="RFC" id="RFC"required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Please choose a RFC.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                 
+                            <div class="form-row">
+                                <!--formulario REGIMEN -->
+                                <div class="col-md-8 mb-3"> 
+                                    <label>Regimen fiscal</label>
+                                    <select class="form-select" id="Regimen" value="<?php echo $Regimen; ?>" required>
+                                        <option selected disabled value="">Elegir...</option>
+                                        <option value="1">Régimen Simplificado de Confianza</option>
+                                    </select>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please choose a RFC.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <!--formulario DOMICILIO -->
+                                <div class="col-md-12 mb-3">
+                                    <label>Domicilio</label>
+                                    <input type="text" class="form-control" placeholder="Calle, numero, ciudad, estado y codigo postal" 
+                                    id="Direccion" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please choose a RFC.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <!--formulario CORREO -->
+                                <div class="col-md-8 mb-3">
+                                    <label >Correo electronico</label>
+                                    <input type="email" class="form-control" id="validationCustom05" placeholder="Correo electronico" 
+                                    id="Correo" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please choose a RFC.
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" id="btnagregar" class="btn btn-primary"><i class="fas fa-user-edit"></i>Guardar</button>
+                            <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </form>
                 <div class="modal-footer">
-                    <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" id="btnagregar" class="btn btn-primary">Guardar</button>
                 </div>
             </div>
-           
         </div>
     </div>
 </div>
-
 <?php include_once "includes/footer.php"; ?>
+
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>

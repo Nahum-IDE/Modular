@@ -9,7 +9,7 @@ if (!empty($_SESSION['active'])) {
 } else {
   if (!empty($_POST)) {
     if (empty($_POST['usuario']) || empty($_POST['clave'])) {
-      $alert = '<div class="alert alert-danger" role="alert"> Ingrese su usuario y su clave </div>';
+      $alert = "<script> alertify.error(' Ingrese su usuario y su clave '); alertify.set('notifier','position', 'top-right'); </script>";
     } else {
       require_once "assets/config/conexion.php";
       $user = mysqli_real_escape_string($conexion, $_POST['usuario']);
@@ -29,7 +29,7 @@ if (!empty($_SESSION['active'])) {
         header('location: assets/');
         
       } else {
-        $alert = '<div class="alert alert-danger" role="alert"> Usuario o Contraseña Incorrecta </div>';
+        $alert = "<script> alertify.error(' Usuario o Contraseña Incorrecta '); alertify.set('notifier','position', 'top-right'); </script>";
         session_destroy();
       }
     }
@@ -44,6 +44,9 @@ if (!empty($_SESSION['active'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turnover</title>
+    <link rel="stylesheet" type="text/css" href="assets/librerias/alertify/css/alertify.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/librerias/alertify/css/themes/bootstrap.css">
+    
     <link rel="stylesheet" href="assets/style/custom.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -154,6 +157,7 @@ if (!empty($_SESSION['active'])) {
 <!-- seccion olvide contraseña-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/scripts/custom.js"></script>
+    <script src="assets/librerias/alertify/alertify.min.js"></script>
 </body>
 <loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container>
 <loom-container id="lo-companion-container"><loom-shadow classname="resolved"></loom-shadow></loom-container>
