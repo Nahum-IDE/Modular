@@ -86,7 +86,7 @@ if (!empty($_SESSION['active'])) {
 <body>
     <section id="login">
 <!-- seccion login -->     
-        <div class="container" id="c1">
+        <div class="container-xxl" id="c1">
           <div class="row">
             <div class="col-md-7 p-0">
               <div id="registro" class="login-wrapper">

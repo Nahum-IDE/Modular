@@ -4,7 +4,7 @@ if (!empty($_GET['id'])) {
     require("config/conexion.php");
     $id = $_GET['id'];
 
-    $query_delete = mysqli_query($conexion, "DELETE FROM cliente WHERE idcliente = $id");
+    $query_delete = mysqli_query($conexion, "DELETE FROM cliente WHERE id_cliente = $id");
 
     if ($query_delete) {
         $alert = "alertify.notify('Cliente borrado', 'success', 5)";

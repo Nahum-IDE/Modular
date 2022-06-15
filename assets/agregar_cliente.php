@@ -18,15 +18,12 @@ include "config/validar.php";
     $Correo = $_POST['Correo'];
     $result = 0;
 
-  //INSERT INTO cliente(Rsocial, RFC, Regimen, Direccion, Correo) values ('MANUEL NAHUM SANTILLAN ENRIQUEZ','SAEM941218DWA',
- // 'Regimen Simplificado de Confianza','12 de octubre 9', 'turnover.facturacion@gmail.com');
-
     if ($result > 0) {
         $alert = "<script> alertify.error('El RFC ya existe'); alertify.set('notifier','position', 'top-right'); </script>";
     }elseif(valida_rfc($RFC) == false){
         $alert = "<script> alertify.error('El RFC es incorrecta'); alertify.set('notifier','position', 'top-right'); </script>";
         }else{
-            $query_insert = mysqli_query($conexion, "INSERT INTO cliente (Rsocial,RFC,Regimen,Direccion,Correo) values 
+            $query_insert = mysqli_query($conexion, "INSERT INTO clientes (Rsocial, RFC, Regimen, Direccion, Correo) values 
             ('$Rsocial','$RFC','$Regimen','$Direccion', '$Correo')");
             if ($query_insert) {
                 $alert = "<script> alertify.notify('Cliente Registrado', 'success', 5); alertify.set('notifier','position', 'top-right'); </script>";
@@ -129,9 +126,9 @@ include "config/validar.php";
                                 </div>
                             </div>
                             <div class="form-row">
-                                <!--formulario CORREO -->
-                                <div class="col-md-8 mb-3">
-                                    <label >Correo electronico</label>
+                                <!--formulario CORREO --> 
+                                <div class="col-md-8 mb-3 ">
+                                   <label >Correo electronico</label>
                                     <input type="email" class="form-control" id="validationCustom05" placeholder="Correo electronico" 
                                     name="Correo" required>
                                     <div class="valid-feedback">

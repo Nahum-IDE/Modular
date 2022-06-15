@@ -62,13 +62,13 @@
                             <tbody>
                                 <?php
                                     include "config/conexion.php";
-                                    $query = mysqli_query($conexion, "SELECT * FROM cliente");
+                                    $query = mysqli_query($conexion, "SELECT * FROM clientes");
 						            $result = mysqli_num_rows($query);
                                     
                                     if ($result > 0) {
                                         while ($data = mysqli_fetch_assoc($query)) { ?>
                                             <tr>
-                                                <td><?php echo $data['idcliente']; ?></td>
+                                                <td><?php echo $data['id_cliente']; ?></td>
                                                 <td><?php echo $data['Rsocial']; ?></td>
                                                 <td><?php echo $data['RFC']; ?></td>
                                                 <td><?php echo $data['Regimen']; ?></td>
@@ -76,13 +76,13 @@
                                                 <td><?php echo $data['Correo']; ?></td>
                                                 <td>
                                                     <!-- boton editar -->
-                                                    <a href="editar_cliente.php?id=<?php echo $data['idcliente']; ?>" class="btn btn-warning btn-xs"> 
+                                                    <a href="editar_cliente.php?id=<?php echo $data['id_cliente']; ?>" class="btn btn-warning btn-xs"> 
                                                         <span class='fas fa-user-edit'></span>
                                                     </a> 
                                                 </td>
                                                 <td>   
                                                     <!-- boton borrar -->
-                                                    <form action="eliminar_cliente.php?id=<?php echo $data['idcliente']; ?>" method="post" class="confirmar d-inline">
+                                                    <form action="eliminar_cliente.php?id=<?php echo $data['id_cliente']; ?>" method="post" class="confirmar d-inline">
                                                     <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'> </i></button>
                                                     </form> 
                                                 </td> 

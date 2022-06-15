@@ -7,13 +7,13 @@ if (empty($_REQUEST['id'])) {
     header("Location: clientes.php");
   }
   $idcliente = $_REQUEST['id'];
-  $sql = mysqli_query($conexion, "SELECT * FROM cliente WHERE idcliente = $idcliente");
+  $sql = mysqli_query($conexion, "SELECT * FROM clientes WHERE id_cliente = $idcliente");
   $result_sql = mysqli_num_rows($sql);
   if ($result_sql == 0) {
     header("Location: clientes.php");
   } else {
     while ($data = mysqli_fetch_array($sql)) {
-      $idcliente = $data['idcliente'];
+      $idcliente = $data['id_cliente'];
       $Rsocial = $data['Rsocial'];
       $RFC = $data['RFC'];
       $Regimen = $data['Regimen'];

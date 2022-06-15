@@ -15,7 +15,7 @@
                     <h5>Total empresas</h5>
                     <span><?php
                         include "./config/conexion.php";
-                        $result = mysqli_query($conexion, "SELECT COUNT(*) total FROM cliente");
+                        $result = mysqli_query($conexion, "SELECT COUNT(*) total FROM clientes");
                         $fila = mysqli_fetch_assoc($result);
                         echo $fila['total'];
                     ?></span>

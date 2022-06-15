@@ -86,7 +86,7 @@ include "assets/config/validar.php";
 <body>
     
     <section id="login">
-          <div class="container" id="c1">
+          <div class="container-xxl" id="c1">
             <div class="row overflow-hidden">
               <div class="col-md-7 p-0 h-100">
                 <div id="registro" class="login-wrapper">
