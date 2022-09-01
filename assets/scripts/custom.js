@@ -52,5 +52,3 @@
       $(this).parent().parent().parent().parent().removeClass('show-modal')
     })
 
-    //Funcion que hace desaparecer el div transcurridos
-    $("#oculta").fadeOut(6000);

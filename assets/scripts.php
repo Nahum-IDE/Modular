@@ -18,3 +18,5 @@
 <script src="librerias/datatable/dataTables.bootstrap4.min.js"></script>
 <!-- scripts de alertify-->
 <script src="librerias/alertify/alertify.js">
+
+<script src="scripts/custom.js">

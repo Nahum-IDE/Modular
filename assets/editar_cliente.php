@@ -66,7 +66,7 @@ if (empty($_REQUEST['id'])) {
                                 <div class="col-md-4 mb-3">
                                     <label for="validationCustomRFC">RFC</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="RFC" id="RFC" value="<?php echo $RFC; ?>"required>
+                                        <input type="text" class="form-control" placeholder="RFC" id="RFC" value="<?php echo $RFC; ?>" required>
                                         <div class="valid-feedback">
                                             Looks good!
                                         </div>

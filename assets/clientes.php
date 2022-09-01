@@ -7,10 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turnover | Dashboard</title>
+    
     <link rel="stylesheet" href="style/custom.min.css">
 <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">   -->
 <!--    <link rel="stylesheet" href="librerias/bootstrap/bootstrap.css">                                            -->
-<!--     <link rel="stylesheet" href="librerias/datatable/dataTables.bootstrap4.min.css">                           -->
+<!--    <link rel="stylesheet" href="librerias/datatable/dataTables.bootstrap4.min.css">                           -->
 <!--    <link rel="preconnect" href="https://fonts.googleapis.com">                                                 -->
 <!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>                                        -->
     <link
@@ -31,7 +32,6 @@
 			            <a  href="agregar_cliente.php" class="btn btn-primary" >
                             Nuevo <span class='fas fa-plus-circle'></span>
                         </a >
-                       
 		            </div>
                   <!--  <div class="table-container"> --> 
                         <table class="table table-striped table-bordered" id="table">
@@ -96,6 +96,7 @@
                 </div>
             </div>
         </section>
+   
    
         
 <!--modal new client -->
@@ -195,6 +196,10 @@
 
 
 <script>
+//filtros de la tabla
+$(document).ready(function () {
+      $('#table').DataTable();
+  });  
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
   'use strict';

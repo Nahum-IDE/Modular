@@ -72,7 +72,7 @@ include "config/validar.php";
                                 <!--formulario razon social -->
                                 <div class="col-md-8 mb-3">
                                     <label for="validationCustomRS">Razon social</label>
-                                    <input type="text" class="form-control" placeholder="Rason social" name="Rsocial" required>
+                                    <input type="text" class="form-control" placeholder="Razon social" name="Rsocial" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
