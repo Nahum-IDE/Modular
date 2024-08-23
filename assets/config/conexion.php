@@ -1,5 +1,4 @@
 <?php
-
     $host = "localhost";
     $user = "root";
     $clave = "root";
@@ -15,5 +14,6 @@
 
     mysqli_set_charset($conexion,"utf8");
 
+    
 
 ?>

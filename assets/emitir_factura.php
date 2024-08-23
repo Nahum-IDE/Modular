@@ -33,7 +33,7 @@ include "config/validar.php";
 	            </div>
                 <div class="row"> 
                     <div class="col">
-                        <form  method="post" class="needs-validation" novalidate>
+                        <form  action="generar_pdf.php" method="post" class="needs-validation" novalidate>
                         <fieldset class="border p-2">
                             <legend  class="float-none w-auto p-2">Cliente</legend>
                             <div class="form-row">
@@ -49,7 +49,6 @@ include "config/validar.php";
                                     <label for="validationCustomRS">Nombre o Razon social</label>
                                     <input type="text" class="form-control" placeholder="Razon social" name="Rsocial" id="Rsocial" 
                                     ondblclick="doble_click(this.value)" value="" required>  <!-- carga el valor al hacer doble click -->
-                                    </li>
                                 </div>
                                 <!-- campo regimen 
                                 <div class="col-md-3 mb-3">
